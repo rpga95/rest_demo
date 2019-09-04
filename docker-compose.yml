@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  rest_api:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+  db:
+    image: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - /tmp/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
